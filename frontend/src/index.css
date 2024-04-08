@@ -1,0 +1,135 @@
+:root {
+  font-size: 20px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font: 1em/1.618 Inter, sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  padding: 30px;
+  margin: 0;
+  /* color: white; */
+  /* color: #224; */
+  background: url(https://source.unsplash.com/E8Ufcyxz514/2400x1823) center /
+    cover no-repeat fixed;
+  backdrop-filter: brightness(70%);
+}
+
+.card,
+.sub-card {
+  max-width: 500px;
+  padding: 35px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(15px);
+  overflow: hidden;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.card p {
+  margin: 0;
+}
+
+.scan-name {
+  font-size: 25px;
+  font-weight: bold;
+  line-height: normal;
+  z-index: 2;
+  position: relative;
+}
+.scan-tag {
+  z-index: 2;
+  position: relative;
+  transition: all 0.5s ease;
+}
+.bg {
+  height: 128px;
+  width: 128px;
+  background-color: #f9b234;
+
+  z-index: 1;
+  position: absolute;
+  top: -75px;
+  right: -75px;
+
+  border-radius: 50%;
+
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.card:nth-child(2n) .bg {
+  background-color: #35ae50;
+}
+.card:nth-child(3n) .bg {
+  background-color: #e44002;
+}
+.card:nth-child(4n) .bg {
+  background-color: #952aff;
+}
+.card:nth-child(5n) .bg {
+  background-color: #cd3e94;
+}
+
+.card:hover .bg {
+  -webkit-transform: scale(10);
+  -ms-transform: scale(10);
+  transform: scale(10);
+}
+
+.card:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.card:hover .scan-tag {
+  color: white !important;
+}
+
+.item:hover {
+  --expand: 1;
+}
+
+.item:before,
+.item:after {
+  content: "";
+  position: absolute;
+  height: 500px;
+  width: 500px;
+  background: hsl(0, 0%, 5%);
+  border: 2px solid white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: -1;
+}
+
+.item:after {
+  transform: translate(calc(var(--expand) * -2%), calc(var(--expand) * -2%));
+  transition: transform 0.2s;
+}
+
+.content {
+  transition: transform 0.2s;
+  transform: translate(calc(var(--expand) * -4%), calc(var(--expand) * -4%));
+}
+
+a {
+  color: pink;
+}
